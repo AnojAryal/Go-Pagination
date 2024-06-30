@@ -11,7 +11,7 @@
         <div class="person-row-last">Last Name</div>
       </div>
 
-      {{ range.people }}
+      {{ range .people }}
       <div class="person-row">
         <div class="person-row-id">
           {{ .ID }}
@@ -24,6 +24,40 @@
         </div>
       </div>
       {{ end }}
+
+    </div>
+
+    <div class="pagination"> 
+      <ul>
+        <li>
+          {{ if gt .pagination.CurrentPage 1 }}
+            <a href="/page/{{ .pagination.PreviousPage }}">
+              Previous
+            </a>
+          {{ else }}
+            <span>
+              Previous
+            </span>
+          {{ end }}
+        </li>
+
+        <li> 
+           <span>
+             {{.pagination.CurrentPage}}
+            </span>
+            </li>
+        <li> 
+          {{ if lt .pagination.CurrentPage .pagination.TotalPages }}
+            <a href="/page/{{ .pagination.NextPage }}">
+              Next
+            </a>
+          {{ else }}
+            <span>
+              Next
+            </span>
+          {{ end }}
+        </li>
+      </ul>
     </div>
   </div>
 </div>
