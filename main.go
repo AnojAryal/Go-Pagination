@@ -22,8 +22,8 @@ func main() {
 	app.Static("/assets", "./assets")
 
 	// Routing
-	app.GET("/", controllers.PeopleIndexGET)
-	app.GET("/page/:page", controllers.PeopleIndexGET)
+	app.GET("/people", controllers.PeopleIndexGET)
+	app.GET("/people/page/:page", controllers.PeopleIndexGET)
 
 
 
